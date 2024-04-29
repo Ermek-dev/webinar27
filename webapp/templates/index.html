@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block menu %}
+     <a href="{% url 'article_add' %}">Add Article</a>
+{% endblock %}
+{% block content %}
+ <h1>Hello world</h1>
+    {% for article in articles %}
+        <h2>{{ article.title }}</h2>
+        <h2>{{ article.text }}</h2>
+        <p>Category: {{ article.category.name }}</p>
+        <p>
+            <a href="{% url 'article_detail' article.pk %}">Подробнее....</a>
+        </p>
+    {% endfor %}
+{% endblock %}
+
